@@ -16,6 +16,7 @@ public class InputReader : MonoBehaviour {
 	public int marginSize;
 	public int leadLetters;
 	public int leadingWhiteSpace;
+	public int bodyBuddies;
 	public float targetBPM;
 	public float shiftAmount;
 	public float smoothTime;
@@ -35,6 +36,11 @@ public class InputReader : MonoBehaviour {
 		mixer = Resources.Load<AudioMixer>("AudioMixer"); 
 		TextAsset textFile = Resources.Load<TextAsset>("text");
 		targetText = textFile.text.Replace("\n", " ");
+		GameObject bodyBuddy = Resources.Load<GameObject>("bodySprite");
+		for(int i = 0; i < bodyBuddies; i++) {
+			GameObject tempBuddy = Instantiate(bodyBuddy);
+			tempBuddy.transform.position = new Vector3(Random.Range(0, 300), Random.Range(-6, 6), 0);
+		}
 		curTime = 0;
 		for(int i = 0; i < leadingWhiteSpace; i++) {
 			targetText = string.Concat(" ", targetText);
@@ -75,7 +81,11 @@ public class InputReader : MonoBehaviour {
 			}
 		}
 		if(cursor > leadLetters) {
-			WPM = (charsEntered.Count / 5f) / (curTime / 60);//(cursor / 5f) / (curTime / 60);
+			if(curTime > 60) {
+				WPM = (charsEntered.Count / 5f); //(curTime / 60);//(cursor / 5f) / (curTime / 60);
+			} else {
+				WPM = (charsEntered.Count / 5f)/ (curTime / 60);
+			}
 			if(Mathf.Abs(BPM - WPM) > marginSize) {
 				if(BPM > WPM) {
 					BPM -= marginSize;

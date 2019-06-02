@@ -337,7 +337,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.7264151, g: 0.71610165, b: 0.34607512, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -517,6 +517,7 @@ MonoBehaviour:
   marginSize: 5
   leadLetters: 10
   leadingWhiteSpace: 40
+  bodyBuddies: 100
   targetBPM: 70
   shiftAmount: 0.001
   smoothTime: 0.4
@@ -751,7 +752,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.236599, g: 0.19215688, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 1, g: 0.7045615, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
